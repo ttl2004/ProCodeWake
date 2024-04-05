@@ -17,10 +17,6 @@ public class Main extends Application {
         stage.setTitle("ProCodeWake");
         stage.setScene((new Scene(root, 341, 543)));
         stage.show();
-//        Parent root = FXMLLoader.load(getClass().getResource("stopwatch.fxml"));
-//        stage.setTitle("Stopwatch");
-//        stage.setScene(new Scene(root, 300, 200));
-//        stage.show();
     }
 
     public static void main(String[] args) {

@@ -6,78 +6,128 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="Border_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="341.0" style="-fx-background-color: fade;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Test">
    <top>
-      <AnchorPane prefHeight="64.0" prefWidth="342.0" style="-fx-background-color: purple;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="64.0" prefWidth="342.0" style="-fx-background-color: #AEE4FF;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Bam_Gio_Button" layoutX="111.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Bam_Gio" style="-fx-background-color: fade;" text="Bấm giờ" />
-            <Button fx:id="Lich_Hen_Button" layoutX="194.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Lich_Hen" style="-fx-background-color: fade;" text="Lịch hẹn" />
-            <Button fx:id="Cai_Dat_Button" layoutX="274.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Cai_Dat" style="-fx-background-color: fade;" text="Cài đặt" />
-            <Label fx:id="Proptit_Label" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="5.0" prefHeight="18.0" prefWidth="212.0" text="PROPTIT" textFill="#e844eb">
+            <Button fx:id="Bam_Gio_Button" layoutX="111.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Bam_Gio" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Bấm giờ" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Lich_Hen_Button" layoutX="194.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Lich_Hen" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Lịch hẹn" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Cai_Dat_Button" layoutX="274.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Cai_Dat" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Cài đặt" textFill="#f9f9fa">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label fx:id="ProCodeWake_Label" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="5.0" prefHeight="18.0" prefWidth="212.0" text="ProCodeWake" textFill="#180f9c">
+               <font>
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="Bao_thuc_Button" layoutX="28.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Bao_Thuc" style="-fx-background-color: fade;" text="Báo thức" />
+            <Button fx:id="Bao_thuc_Button" layoutX="28.0" layoutY="29.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Bao_Thuc" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Báo thức" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane prefHeight="429.0" prefWidth="15.0" style="-fx-background-color: fade;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="429.0" prefWidth="15.0" style="-fx-background-color: #AEE4FF;" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <AnchorPane prefHeight="55.0" prefWidth="342.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="55.0" prefWidth="342.0" style="-fx-background-color: #AEE4FF;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Them_Bao_Thuc_Button" layoutX="103.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Them_Bao_Thuc" prefHeight="38.0" prefWidth="135.0" text="Thêm Báo Thức" />
-            <Button fx:id="Bat_Dau_Button" layoutX="121.0" layoutY="13.0" mnemonicParsing="false" onAction="#Chuc_Nang_Bat_Dau" prefHeight="30.0" prefWidth="98.0" text="Bắt đầu" visible="false" />
-            <Button fx:id="Luu_Thoi_Gian_Button" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#Chay_Chuc_Nang_Luu_Thoi_Gian" text="Lưu thời gian" visible="false" />
-            <Button fx:id="Dat_Lai_Button" layoutX="233.0" layoutY="15.0" mnemonicParsing="false" onAction="#Chuc_Nang_Dat_Lai" prefHeight="26.0" prefWidth="92.0" text="Đặt lại" visible="false" />
-            <Button fx:id="Tam_Dung_Button" layoutX="135.0" layoutY="16.0" mnemonicParsing="false" onAction="#Chuc_Nang_Tam_Dung" text="Tạm dừng" visible="false" />
-            <Button fx:id="Them_Lich_Hen_Button" layoutX="107.0" layoutY="10.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Them_Lich_Hen" prefHeight="38.0" prefWidth="126.0" text="Thêm lịch hẹn" visible="false" />
-            <Button fx:id="Tiep_Tuc_Button" layoutX="123.0" layoutY="15.0" mnemonicParsing="false" onAction="#Chuc_Nang_Tiep_Tuc" prefHeight="26.0" prefWidth="91.0" text="Tiếp tục" visible="false" />
+            <Button fx:id="Them_Bao_Thuc_Button" layoutX="103.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Them_Bao_Thuc" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Thêm Báo Thức" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Bat_Dau_Button" layoutX="121.0" layoutY="13.0" mnemonicParsing="false" onAction="#Chuc_Nang_Bat_Dau" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Bắt đầu" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Luu_Thoi_Gian_Button" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#Chay_Chuc_Nang_Luu_Thoi_Gian" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Lưu thời gian" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Dat_Lai_Button" layoutX="235.0" layoutY="16.0" mnemonicParsing="false" onAction="#Chuc_Nang_Dat_Lai" prefHeight="22.0" prefWidth="90.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Đặt lại" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Tam_Dung_Button" layoutX="127.0" layoutY="16.0" mnemonicParsing="false" onAction="#Chuc_Nang_Tam_Dung" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Tạm dừng" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Them_Lich_Hen_Button" layoutX="107.0" layoutY="10.0" mnemonicParsing="false" onAction="#Hien_Thi_Cua_So_Them_Lich_Hen" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Thêm lịch hẹn" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Tiep_Tuc_Button" layoutX="123.0" layoutY="15.0" mnemonicParsing="false" onAction="#Chuc_Nang_Tiep_Tuc" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Tiếp tục" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children></AnchorPane>
    </bottom>
    <right>
-      <AnchorPane prefHeight="424.0" prefWidth="14.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="424.0" prefWidth="14.0" style="-fx-background-color: #AEE4FF;" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: fade;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #AEE4FF;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Cap_Nhap_Button" layoutX="187.0" layoutY="349.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="38.0" prefWidth="110.0" text="Cập nhập" visible="false" />
-            <Button fx:id="Huy_Button" layoutX="76.0" layoutY="349.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cua_Huy_Button" prefHeight="38.0" prefWidth="87.0" text="Huỷ" visible="false" />
-            <Label fx:id="Gio_Bao_Thuc_Label" alignment="CENTER" layoutX="54.0" layoutY="89.0" prefHeight="30.0" prefWidth="65.0" text="Giờ" textFill="#56e1bc" visible="false">
+            <Button fx:id="Cap_Nhap_Button" layoutX="178.0" layoutY="341.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Cập nhập" textFill="WHITE" visible="false">
                <font>
-                  <Font size="31.0" />
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Huy_Button" layoutX="56.0" layoutY="341.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cua_Huy_Button" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Huỷ" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label fx:id="Gio_Bao_Thuc_Label" alignment="CENTER" layoutX="53.0" layoutY="97.0" prefHeight="30.0" prefWidth="65.0" text="Giờ" textFill="#6a9cfd" visible="false">
+               <font>
+                  <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="Phut_Bao_Thuc_Label" alignment="CENTER" layoutX="209.0" layoutY="89.0" prefHeight="30.0" prefWidth="65.0" text="Phút" textFill="#56e1bc" visible="false">
+            <Label fx:id="Phut_Bao_Thuc_Label" alignment="CENTER" layoutX="209.0" layoutY="97.0" prefHeight="30.0" prefWidth="65.0" text="Phút" textFill="#6a9cfd" visible="false">
                <font>
-                  <Font size="31.0" />
+                  <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="Ky_Tu_Label" alignment="CENTER" layoutX="130.0" layoutY="89.0" prefHeight="30.0" prefWidth="65.0" text=":" textFill="#56e1bc" visible="false">
+            <Label fx:id="Ky_Tu_Label" alignment="CENTER" layoutX="131.0" layoutY="97.0" prefHeight="30.0" prefWidth="65.0" text=":" textFill="#6a9cfd" visible="false">
                <font>
-                  <Font size="31.0" />
+                  <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="Thoi_Gian_Bam_Gio_Label" layoutX="67.0" layoutY="63.0" text="00:00:00:00" textFill="#b832ac" visible="false">
+            <Label fx:id="Thoi_Gian_Bam_Gio_Label" layoutX="57.0" layoutY="62.0" text="00:00:00:00" textFill="#6a9cfd" visible="false">
                <font>
-                  <Font size="36.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <ListView fx:id="Bam_Gio_List_View" layoutX="25.0" layoutY="154.0" prefHeight="259.0" prefWidth="260.0" visible="false" />
-            <ListView fx:id="Bao_Thuc_List_View" layoutX="14.0" layoutY="10.0" prefHeight="407.0" prefWidth="287.0" />
-            <Button fx:id="Am_Luong_Nhac_Chuong_Button" layoutX="76.0" layoutY="66.0" mnemonicParsing="false" onAction="#Chuc_Nang_Am_Luong_Nhac_Chuong" prefHeight="46.0" prefWidth="158.0" text="Âm lượng nhạc chuông" visible="false" />
-            <Button fx:id="Thoi_Gian_Tu_Tat_Bao_Thuc_Button" layoutX="76.0" layoutY="284.0" mnemonicParsing="false" onAction="#Chuc_Nang_Thoi_Gian_Tat_Bao_Thuc" prefHeight="46.0" prefWidth="158.0" text="Thời gian tự tắt báo thức" visible="false" />
-            <Button fx:id="Nhac_Chuong_Bao_Thuc_Button" layoutX="79.0" layoutY="180.0" mnemonicParsing="false" onAction="#Cai_Dat_Nhac_Chuong_Bao_Thuc" prefHeight="46.0" prefWidth="158.0" text="Nhạc chuông báo thức" visible="false" />
-            <ListView fx:id="Lich_Hen_List_View" layoutX="13.0" layoutY="136.0" prefHeight="276.0" prefWidth="290.0" visible="false" />
-            <Label fx:id="Gio_Va_Phut_Lich_Hen_Label" layoutX="81.0" layoutY="145.0" prefHeight="46.0" prefWidth="165.0" text="Giờ   :   Phút" textFill="#7c23bc" visible="false">
+            <ListView fx:id="Bam_Gio_List_View" layoutX="25.0" layoutY="124.0" prefHeight="289.0" prefWidth="260.0" style="-fx-background-radius: 8; -fx-background-color: #FDF5F4;" visible="false" />
+            <ListView fx:id="Bao_Thuc_List_View" layoutX="14.0" layoutY="10.0" prefHeight="407.0" prefWidth="287.0" style="-fx-background-radius: 8; -fx-background-color: #FDF5F4;" />
+            <Button fx:id="Am_Luong_Nhac_Chuong_Button" layoutX="76.0" layoutY="66.0" mnemonicParsing="false" onAction="#Chuc_Nang_Am_Luong_Nhac_Chuong" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Âm lượng nhạc chuông" textFill="#f7f7f7" visible="false">
                <font>
-                  <Font size="30.0" />
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Thoi_Gian_Tu_Tat_Bao_Thuc_Button" layoutX="76.0" layoutY="284.0" mnemonicParsing="false" onAction="#Chuc_Nang_Thoi_Gian_Tat_Bao_Thuc" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Thời gian tự tắt báo thức" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Nhac_Chuong_Bao_Thuc_Button" layoutX="77.0" layoutY="180.0" mnemonicParsing="false" onAction="#Cai_Dat_Nhac_Chuong_Bao_Thuc" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Nhạc chuông báo thức" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <ListView fx:id="Lich_Hen_List_View" layoutX="9.0" layoutY="16.0" prefHeight="396.0" prefWidth="295.0" style="-fx-background-radius: 8; -fx-background-color: #FDF5F4;" visible="false" />
+            <Label fx:id="Gio_Va_Phut_Lich_Hen_Label" layoutX="81.0" layoutY="145.0" prefHeight="46.0" prefWidth="183.0" text="Giờ   :   Phút" textFill="#6a9cfd" visible="false">
+               <font>
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
             <MenuButton fx:id="Chon_Gio_Lich_Hen_MenuBtton" layoutX="76.0" layoutY="203.0" mnemonicParsing="false" onAction="#Chon_Gio_Lich_Hen" prefHeight="45.0" prefWidth="88.0" text="Chọn Giờ" visible="false">
@@ -93,11 +143,35 @@
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
-            <Button fx:id="Cap_Nhap_Lich_Hen_Button" layoutX="192.0" layoutY="360.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cap_Nhap_Lich_Hen" prefHeight="38.0" prefWidth="100.0" text="Cập nhập" visible="false" />
-            <Button fx:id="Huy_Dat_Lich_Hen_Button" layoutX="74.0" layoutY="360.0" mnemonicParsing="false" onAction="#Chuc_Nang_Huy_Dat_Lich_Hen" prefHeight="38.0" prefWidth="84.0" text="Huỷ" visible="false" />
-            <ComboBox fx:id="Chon_Gio_ComboBox" layoutX="54.0" layoutY="153.0" onAction="#Chon_Gio_Bao_Thuc" prefHeight="29.0" prefWidth="94.0"  visible="false" />
+            <Button fx:id="Cap_Nhap_Lich_Hen_Button" layoutX="192.0" layoutY="360.0" mnemonicParsing="false" onAction="#Chuc_Nang_Cap_Nhap_Lich_Hen" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Cập nhập" textFill="#fcfcfc" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="Huy_Dat_Lich_Hen_Button" layoutX="74.0" layoutY="360.0" mnemonicParsing="false" onAction="#Chuc_Nang_Huy_Dat_Lich_Hen" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 8;" text="Huỷ" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <ComboBox fx:id="Chon_Gio_ComboBox" layoutX="53.0" layoutY="168.0" onAction="#Chon_Gio_Bao_Thuc" prefHeight="29.0" prefWidth="94.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 12;" visible="false" />
             
-            <ComboBox fx:id="Chon_Phut_ComboBox" layoutX="184.0" layoutY="153.0" onAction="#Chon_Phut_Bao_Thuc" prefHeight="29.0" prefWidth="99.0"  visible="false" />
+            <ComboBox fx:id="Chon_Phut_ComboBox" layoutX="184.0" layoutY="165.0" onAction="#Chon_Phut_Bao_Thuc" prefHeight="29.0" prefWidth="99.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 12;" visible="false" />
+            <TextField fx:id="Cau_Hoi_Cho_Bao_Thuc_TexField" layoutX="52.0" layoutY="236.0" onAction="#Lay_Text_Cau_Hoi_Bao_Thuc" prefHeight="26.0" prefWidth="231.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" visible="false" />
+            <TextField fx:id="Cau_Tra_Loi_Bao_Thuc_TextField" layoutX="50.0" layoutY="284.0" onAction="#Lay_Text_Cau_Tra_Loi" prefHeight="26.0" prefWidth="233.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" visible="false" />
+            <Label fx:id="Cau_Hoi_Label" layoutX="54.0" layoutY="217.0" text="Câu hỏi để tắt báo thức:" textFill="#6a9cfd" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="Cau_Tra_Loi_Label" layoutX="51.0" layoutY="266.0" text="Câu trả lời:" textFill="#6a9cfd" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Slider fx:id="Thanh_Am_Luong_Slider" layoutX="31.0" layoutY="146.0" majorTickUnit="10.0" minorTickCount="10" prefHeight="38.0" prefWidth="253.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #FDF5F4; -fx-background-radius: 6;" value="100.0" visible="false" />
+            <Label fx:id="Am_Luong_Label" layoutX="101.0" layoutY="105.0" prefHeight="38.0" prefWidth="142.0" text="Âm lượng: " textFill="#6a9cfd" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
                
          </children>
       </AnchorPane>
