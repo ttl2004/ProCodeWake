@@ -8,9 +8,11 @@ import java.io.File;
 public class MediaCodeWake {
     MediaCodeWake (){
         filePath = "C:\\Users\\Admin\\Downloads\\ssstik.io_1710274642514.mp3";
+        //media = new javafx.scene.media.Media(new File(filePath).toURI().toString());
     }
     private static String filePath;
     private MediaPlayer mediaPlayer;
+    private javafx.scene.media.Media media;
 
     public static void setFilePath(String path) {
         filePath = path;
@@ -19,7 +21,7 @@ public class MediaCodeWake {
     public void playMedia() {
         File file = new File(filePath);
         if (file.exists()) {
-            javafx.scene.media.Media media = new javafx.scene.media.Media(file.toURI().toString());
+            media = new javafx.scene.media.Media(file.toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.play();
         } else {
@@ -29,6 +31,10 @@ public class MediaCodeWake {
 
     public void setVolume(int volume) {
         mediaPlayer.setVolume(volume);
+    }
+
+    public void stopMedia() {
+        mediaPlayer.stop();
     }
 }
 
