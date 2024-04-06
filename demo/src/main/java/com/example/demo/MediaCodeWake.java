@@ -10,6 +10,7 @@ public class MediaCodeWake {
         filePath = "C:\\Users\\Admin\\Downloads\\ssstik.io_1710274642514.mp3";
     }
     private static String filePath;
+    private MediaPlayer mediaPlayer;
 
     public static void setFilePath(String path) {
         filePath = path;
@@ -19,12 +20,15 @@ public class MediaCodeWake {
         File file = new File(filePath);
         if (file.exists()) {
             javafx.scene.media.Media media = new javafx.scene.media.Media(file.toURI().toString());
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer = new MediaPlayer(media);
             mediaPlayer.play();
         } else {
             System.out.println("File âm thanh không tồn tại.");
         }
     }
 
+    public void setVolume(int volume) {
+        mediaPlayer.setVolume(volume);
+    }
 }
 

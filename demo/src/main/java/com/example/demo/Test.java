@@ -9,18 +9,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 
 public class Test{
@@ -86,6 +90,8 @@ public class Test{
     @FXML
     private Button Huy_Button;
     @FXML
+    private Button Nop_Button;
+    @FXML
     private Label Gio_Va_Phut_Lich_Hen_Label;
     @FXML
     private Label ProCodeWake_Label;
@@ -115,8 +121,13 @@ public class Test{
     private TextField Cau_Hoi_Cho_Bao_Thuc_TexField;
     @FXML
     private TextField Cau_Tra_Loi_Bao_Thuc_TextField;
+
+    @FXML
+    private TextField Cau_Tra_Loi_TextField;
     @FXML
     private Slider Thanh_Am_Luong_Slider;
+    @FXML
+    private AnchorPane Cua_So_Cau_Tra_Loi_AnchorPane;
 
     //Bắt Đầu dòng code của phần controller và logic của Bấm giờ
     private Timeline timeline;
@@ -236,8 +247,13 @@ public class Test{
 
 
     //Bắt đầu dòng code Controller và logic của Báo Thức
+    private int So_Thu_Tu = 0;
+    private int cnt = 0;
     private String string;
+    private String Cau_Hoi;
+    private String Cau_Tra_Loi;
     private Timeline alarmTimeline;
+    private ArrayList<Pair<String, String>> Danh_Sach_Cau_Hoi = new ArrayList<>();
     private MediaCodeWake mediaCodeWake = new MediaCodeWake();
     void Khoi_Tao() {
         //Thêm lựa chọn giờ báo thức
@@ -340,13 +356,19 @@ public class Test{
         HBox hBox = new HBox();
         Button button1 = new Button("Xoá");
         Label Thoi_Gian_Bao_Thuc = new Label();
-        if (string.length() == 5) {
+        Label STT;
+        Cau_Hoi = Cau_Hoi_Cho_Bao_Thuc_TexField.getText();
+        Cau_Tra_Loi = Cau_Tra_Loi_Bao_Thuc_TextField.getText();
+        if (string.length() == 5 && Cau_Hoi.length() > 0 && Cau_Tra_Loi.length() > 0) {
             Thoi_Gian_Bao_Thuc.setText(string);
+            So_Thu_Tu ++;
+            STT = new Label(String.valueOf(So_Thu_Tu) + ".    ");
+            System.out.println(Cau_Hoi + " " + Cau_Tra_Loi);
         }
         else {
             return;
         }
-        hBox.getChildren().addAll(Thoi_Gian_Bao_Thuc, button1);
+        hBox.getChildren().addAll(STT, Thoi_Gian_Bao_Thuc, button1);
         Thoi_Gian_Bao_Thuc.setMaxWidth(Double.MAX_VALUE);
         hBox.setHgrow(Thoi_Gian_Bao_Thuc, Priority.ALWAYS);
         // Thêm ClickListener vào nút "Xoá"
@@ -354,7 +376,11 @@ public class Test{
             Bao_Thuc_List_View.getItems().remove(hBox);
         });
         Bao_Thuc_List_View.getItems().add(hBox);
+        //Cập nhập câu hỏi để tắt báo thức
+        Danh_Sach_Cau_Hoi.add(new Pair<>(Cau_Hoi, Cau_Tra_Loi));
         string = "";
+        Cau_Hoi_Cho_Bao_Thuc_TexField.clear();
+        Cau_Tra_Loi_Bao_Thuc_TextField.clear();
         StartAlarmClock();
     }
     @FXML
@@ -374,15 +400,6 @@ public class Test{
             string = string + str;
         }
     }
-    @FXML
-    void Lay_Text_Cau_Hoi_Bao_Thuc(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Lay_Text_Cau_Tra_Loi(ActionEvent event) {
-
-    }
      private int Check(String s) {
         //Lấy thời gian từ hệ thống
          LocalDateTime localDateTime = LocalDateTime.now();
@@ -392,17 +409,23 @@ public class Test{
         if (s.equals(dateString)) return 1;
         else return 0;
     }
-    int cnt = 0;
+    private void show_Cua_So_Cau_Hoi(Pair<String, String> pair){
+        Cua_So_Cau_Tra_Loi_AnchorPane.setVisible(true);
+    }
     private void StartAlarmClock() {
         //Tạo một timeline kiểm tra mỗi phút
         alarmTimeline = new Timeline(new KeyFrame(Duration.minutes(1), event -> {
-            for (HBox x : Bao_Thuc_List_View.getItems()) {
-                Label tmp = (Label) x.getChildren().get(0);
+            int len = Bao_Thuc_List_View.getItems().size();
+            for (int i = 0; i < len; i ++) {
+                HBox hBox = Bao_Thuc_List_View.getItems().get(i);
+                Label tmp = (Label) hBox.getChildren().get(1);
                 String alrmTime = tmp.getText();
                 if (Check(alrmTime) == 1){
                     System.out.println("hello");
                     cnt = cnt + 1;
                     mediaCodeWake.playMedia();
+                    Pair<String, String> pair = Danh_Sach_Cau_Hoi.get(i);
+                    Cua_So_Cau_Tra_Loi_AnchorPane.setVisible(true);
                     break;
                 }
                 else if (cnt > 0){
@@ -468,17 +491,22 @@ public class Test{
     }
     @FXML
     void Chuc_Nang_Am_Luong_Nhac_Chuong(ActionEvent event) {
+        //Bắt đầu code setvisible
         Am_Luong_Label.setVisible(true);
         Thanh_Am_Luong_Slider.setVisible(true);
         Am_Luong_Nhac_Chuong_Button.setVisible(false);
         Nhac_Chuong_Bao_Thuc_Button.setVisible(false);
         Thoi_Gian_Tu_Tat_Bao_Thuc_Button.setVisible(false);
+        //Kết thúc code setvisible
 
-        Thanh_Am_Luong_Slider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                number = (int) Thanh_Am_Luong_Slider.getValue();
-                Am_Luong_Label.setText("Âm lượng: " + String.valueOf(number));
+        Thanh_Am_Luong_Slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            // Lấy giá trị âm lượng mới từ Slider
+            int number = (int) (newValue.doubleValue());
+            Am_Luong_Label.setText("Âm lượng: " + number);
+
+            // Đặt âm lượng cho đối tượng MediaPlayer của MediaCodeWake
+            if (mediaCodeWake != null) {
+                mediaCodeWake.setVolume(number);
             }
         });
     }
