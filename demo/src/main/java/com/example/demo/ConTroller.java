@@ -332,7 +332,6 @@ public class ConTroller {
         Cau_Tra_Loi = Cau_Tra_Loi_Bao_Thuc_TextField.getText();
         if (string.length() == 5 && Cau_Hoi.length() > 0 && Cau_Tra_Loi.length() > 0) {
             Thoi_Gian_Bao_Thuc.setText(string);
-            System.out.println(Cau_Hoi + " " + Cau_Tra_Loi);
         }
         else {
             return;
@@ -413,7 +412,6 @@ public class ConTroller {
                         if (Check_2(pair.getValue(), str) == 1) {
                             // Nếu đáp án đúng, dừng nhạc và ẩn giao diện
                             mediaCodeWake.stopMedia();
-                            System.out.println("ok");
                             Cua_So_Cau_Tra_Loi_AnchorPane.setVisible(false);
                             Empty_AnchorPane.setVisible(false);
                             Bao_thuc_Button.setVisible(true);
@@ -638,10 +636,6 @@ public class ConTroller {
         String dateString = localDateTime.format(formatter);
         // So sánh thời gian
         if (s.equals(dateString)) return 1;
-        else return 0;
-    }
-    private int Check_4(String x, String y) {
-        if (x.equals(y)) return 1;
         else return 0;
     }
     private int ktra = 0;
