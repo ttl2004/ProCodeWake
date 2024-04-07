@@ -24,7 +24,8 @@ Link Video Demo: https://youtu.be/Ubx121LWPrc
     + ***Lịch hẹn:*** Cung cấp cho bạn 1 đồng hồ báo lịch hẹn. Đồng hồ này sẽ thông báo lịch hẹn mà bạn đặt thời gian. 
     + ***Cài đặt:*** Cung cấp 2 chức năng đó là tuỳ chỉnh âm lượng và chọn nhạc chuông khác từ máy của bạn.
 
-
+## UML
+![alt text](Class_Diagram.png)
 ## Requirements
 
 - Java 17.0.2
