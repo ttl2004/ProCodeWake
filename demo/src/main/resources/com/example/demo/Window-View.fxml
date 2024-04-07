@@ -226,8 +226,8 @@
                   <ComboBox fx:id="Chon_Gio_ComboBox" layoutX="48.0" layoutY="106.0" onAction="#Chon_Gio_Bao_Thuc" prefHeight="30.0" prefWidth="73.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 12;" />
                   
                   <ComboBox fx:id="Chon_Phut_ComboBox" layoutX="142.0" layoutY="106.0" onAction="#Chon_Phut_Bao_Thuc" prefHeight="30.0" prefWidth="73.0" style="-fx-background-color: #6A9CFD; -fx-background-radius: 12;" />
-                  <TextField fx:id="Cau_Hoi_Cho_Bao_Thuc_TexField" layoutX="47.0" layoutY="240.0" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" />
-                  <TextField fx:id="Cau_Tra_Loi_Bao_Thuc_TextField" layoutX="46.0" layoutY="177.0" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" />
+                  <TextField fx:id="Cau_Hoi_Cho_Bao_Thuc_TexField" layoutX="48.0" layoutY="177.0" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" />
+                  <TextField fx:id="Cau_Tra_Loi_Bao_Thuc_TextField" layoutX="48.0" layoutY="240.0" onAction="#Chuc_Nang_Cua_Cap_Nhap_Button" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: #FDF5F4; -fx-background-radius: 8;" />
                   <Label layoutX="46.0" layoutY="149.0" text="Câu hỏi để tắt báo thức:" textFill="#6a9cfd">
                      <font>
                         <Font name="System Bold" size="14.0" />

@@ -136,6 +136,14 @@ public class ConTroller {
     private AnchorPane Empty_AnchorPane;
     @FXML
     private CheckBox Tat_Mo_Giao_Dien_Chinh_Checkbox;
+    private int check = 0;
+    private void Khoi_Tao_Media(){
+        if (check == 0) {
+            mediaCodeWake.playMedia();
+            check = 1;
+        }
+        if (mediaCodeWake != null) mediaCodeWake.stopMedia();
+    }
 
     private void Khoi_Tao_Media(){
         mediaCodeWake.playMedia();
@@ -211,6 +219,7 @@ public class ConTroller {
         Dat_Lai_Button.setVisible(false);
         Luu_Thoi_Gian_Button.setVisible(false);
         Tam_Dung_Button.setVisible(false);
+        Tiep_Tuc_Button.setVisible(false);
         Bat_Dau_Button.setVisible(true);
         Thoi_Gian_Bam_Gio_Label.setText("00:00:00:00");
         Bam_Gio_List_View.getItems().clear(); // Xóa danh sách lap time khi đặt lại
@@ -317,6 +326,8 @@ public class ConTroller {
         Bao_Thuc_List_View.setVisible(false);
         Them_Bao_Thuc_Button.setVisible(false);
         Them_Bao_Thuc_AnchorPane.setVisible(true);
+        Cau_Hoi_Cho_Bao_Thuc_TexField.setVisible(true);
+        Cau_Tra_Loi_Bao_Thuc_TextField.setVisible(true);
         string = "";
         Khoi_Tao();
     }
@@ -325,6 +336,10 @@ public class ConTroller {
         Bao_Thuc_List_View.setVisible(true);
         Them_Bao_Thuc_Button.setVisible(true);
         Them_Bao_Thuc_AnchorPane.setVisible(false);
+        Chon_Gio_ComboBox.getSelectionModel().clearSelection();
+        Chon_Phut_ComboBox.getSelectionModel().clearSelection();
+        Cau_Hoi_Cho_Bao_Thuc_TexField.clear();
+        Cau_Tra_Loi_Bao_Thuc_TextField.clear();
         StartAlarmClock();
     }
     @FXML
@@ -343,6 +358,8 @@ public class ConTroller {
             Thoi_Gian_Bao_Thuc.setText(string);
         }
         else {
+            Cau_Hoi_Cho_Bao_Thuc_TexField.clear();
+            Cau_Tra_Loi_Bao_Thuc_TextField.clear();
             return;
         }
         hBox.getChildren().addAll(Thoi_Gian_Bao_Thuc, button1);
@@ -428,6 +445,7 @@ public class ConTroller {
                             Bam_Gio_Button.setVisible(true);
                             Lich_Hen_Button.setVisible(true);
                             Cai_Dat_Button.setVisible(true);
+                            Cau_Tra_Loi_TextField.clear();
                             kiemtra = 1;
                             Nop_Button.setOnAction(null); // Xóa sự kiện khi đã kết thúc
                         } else {
@@ -497,6 +515,7 @@ public class ConTroller {
             // Cập nhật đường dẫn file vào class MediaCodeWake
             MediaCodeWake.setFilePath(selectedFile.getPath());
             mediaCodeWake.playMedia();
+            check = 1;
         }
     }
     @FXML
@@ -618,6 +637,7 @@ public class ConTroller {
             Thoi_Gian_Lich_Hen.setText(ThoiGian);
         }
         else {
+            Lich_Hen_TextField.clear();
             return;
         }
         hBox.getChildren().addAll(Thoi_Gian_Lich_Hen, button1);
@@ -639,6 +659,9 @@ public class ConTroller {
         Lich_Hen_List_View.setVisible(true);
         Them_Lich_Hen_Button.setVisible(true);
         Them_Lich_Hen_AnchorPane.setVisible(false);
+        Lich_Hen_TextField.clear();
+        Chon_Gio_Lich_Hen_ComboBox.getSelectionModel().clearSelection();
+        Chon_Phut_Lich_Hen_ComboBox.getSelectionModel().clearSelection();
         Start_Lich_Hen();
     }
     private int Check_3(String s) {

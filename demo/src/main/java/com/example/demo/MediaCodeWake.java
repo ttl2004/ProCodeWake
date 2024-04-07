@@ -6,6 +6,7 @@ import java.io.File;
 
 
 public class MediaCodeWake {
+    //Nhạc mặc định mink để ở đường dẫn file trong máy mik, nên bạn muốn cài nhạc mạc định chỉ cần viết đường dẫn vào dưới đây
     MediaCodeWake (){
         filePath = "C:\\Users\\Admin\\Downloads\\ssstik.io_1710274642514.mp3";
         //media = new javafx.scene.media.Media(new File(filePath).toURI().toString());
