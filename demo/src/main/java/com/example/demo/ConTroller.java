@@ -137,6 +137,11 @@ public class ConTroller {
     @FXML
     private CheckBox Tat_Mo_Giao_Dien_Chinh_Checkbox;
 
+    private void Khoi_Tao_Media(){
+        mediaCodeWake.playMedia();
+        if (mediaCodeWake != null) mediaCodeWake.stopMedia();
+    }
+
     //Bắt Đầu dòng code của phần controller và logic của Bấm giờ
     private Timeline timeline;
     private long startTime;
@@ -147,6 +152,7 @@ public class ConTroller {
         Tam_Dung_Button.setVisible(false);
         Tiep_Tuc_Button.setVisible(false);
         Dat_Lai_Button.setVisible(false);
+        Luu_Thoi_Gian_Button.setVisible(false);
         Bam_Gio_List_View.getItems().clear(); // Xóa danh sách lap time khi đặt lại
         if (timeline != null) {
             timeline.stop();
@@ -180,6 +186,8 @@ public class ConTroller {
         Tat_Mo_Giao_Dien_Chinh_Checkbox.setSelected(false);
         Buc_Anh_AnchorPane.setVisible(false);
         Empty_AnchorPane.setVisible(false);
+        Khoi_Tao_Media();
+        Reset();
     }
     @FXML
     void Chay_Chuc_Nang_Luu_Thoi_Gian(ActionEvent event) {
@@ -301,6 +309,7 @@ public class ConTroller {
         Tat_Mo_Giao_Dien_Chinh_Checkbox.setSelected(false);
         Buc_Anh_AnchorPane.setVisible(false);
         Empty_AnchorPane.setVisible(false);
+        Khoi_Tao_Media();
         Reset();
     }
     @FXML
@@ -412,6 +421,7 @@ public class ConTroller {
                         if (Check_2(pair.getValue(), str) == 1) {
                             // Nếu đáp án đúng, dừng nhạc và ẩn giao diện
                             mediaCodeWake.stopMedia();
+                            System.out.println("ok");
                             Cua_So_Cau_Tra_Loi_AnchorPane.setVisible(false);
                             Empty_AnchorPane.setVisible(false);
                             Bao_thuc_Button.setVisible(true);
@@ -476,6 +486,7 @@ public class ConTroller {
         Tat_Mo_Giao_Dien_Chinh_Checkbox.setSelected(false);
         Buc_Anh_AnchorPane.setVisible(false);
         Empty_AnchorPane.setVisible(false);
+        Khoi_Tao_Media();
         Reset();
     }
     @FXML
@@ -564,6 +575,7 @@ public class ConTroller {
         Tat_Mo_Giao_Dien_Chinh_Checkbox.setSelected(false);
         Buc_Anh_AnchorPane.setVisible(false);
         Empty_AnchorPane.setVisible(false);
+        Khoi_Tao_Media();
         Reset();
     }
 
